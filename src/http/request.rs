@@ -8,7 +8,7 @@ use std::fmt::Result as fmtResult;
 use std::fmt::Formatter;
 use std::str;
 
-
+#[derive(Debug)]
 pub struct Request<'buff> {
     path: &'buff str,
     query_string: Option<QueryString<'buff>>,
