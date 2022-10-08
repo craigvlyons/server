@@ -15,6 +15,20 @@ pub struct Request<'buff> {
     method: Method,
 }
 
+impl<'buff> Request<'buff> {
+    pub fn path(&self) -> &str{
+        &self.path
+    }
+
+    pub fn method(&self) -> &Method{
+        &self.method
+    }
+
+    pub fn query_string(&self) -> Option<&QueryString> {
+        self.query_string.as_ref()
+    }
+}
+
 
 impl<'buff> TryFrom<&'buff [u8]> for Request<'buff> {
     type Error = ParseError;
