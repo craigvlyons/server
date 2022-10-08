@@ -1,11 +1,11 @@
 #![allow(dead_code)]
 
 use server::Server;
-use http::Request;
-use http::Method;
+use website_handler::WebsiteHandler;
 
 mod http;
 mod server;
+mod website_handler;
 
 fn main() {
     //let get = Method::GET;
@@ -14,7 +14,7 @@ fn main() {
     //let put = Method::PUT;
     
     let server = Server::new("127.0.0.1:8080".to_string());
-    server.run();
+    server.run(WebsiteHandler);
 }
 
 
